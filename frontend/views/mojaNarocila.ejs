@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Shop</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .orderul1 {
+  list-style-type: none;
+  padding: 0;
+}
+
+.orderli1 {
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+}
+
+.oh2 {
+  color: #4285f4;
+}
+
+
+
+.details {
+  margin-top: 10px;
+}
+
+
+
+.orderul2 {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.orderli2 {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.op2 {
+  color: #777;
+}
+    
+    
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  .details {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  h3 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .details ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  .details li {
+    margin-bottom: 10px;
+  }
+</style>
+
+
+  
+
+  <script>
+
+function handleRemoveButtonClick(orderId) {
+    const url = `/odstraniNarocilo?orderId=${orderId}`;
+    window.location.href = url;
+  }
+
+
+    function toggleMenu() {
+    var menuList = document.querySelector('.menu-list');
+    menuList.style.display = (menuList.style.display === 'block') ? 'none' : 'block';
+}
+
+
+ 
+
+  </script>
+
+  
+  
+</head>
+<body>
+  
+</div>
+
+<div class="header">
+  <div class="menu-icon" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+</div>
+<ul class="menu-list">
+          <li><a href="/mojaKosarica">Košarica</a></li>
+          <li><a href="/pridobiNarocila">Naročila</a></li>
+          <li><a href="/statistika">Statistika</a></li>
+          <li><a href="/messages">Sporocila</a></li>
+          <li><a href="/">Glavni meni</a></li>
+  
+</ul>
+  
+    <div class="user-info">
+      
+        
+        <div>
+          <a href="/login" class="logout-button">Logout</a>
+        </div>
+      
+       
+      
+    </div>
+    
+  </div>
+
+
+  <div>
+    
+  
+    <ul class="orderul1">
+        <% for (let order of orders) { %>
+            <li class="orderli1">
+                <h2 class="oh2">ID naročila: <%= order.iD_naročila %></h2>
+                <p class="op1">Naročnik: <%= order.imeUporabnika %></p>
+                
+                <div class="details">
+                    <h3 class="oizdelki">Naročeni izdelki:</h3>
+                    <ul class="orderul2">
+                        <% for (let item of order.izdelki) { %>
+                            <li class="orderli2">
+                                <p class="op2">Izdelek: <%= item.name %></p>
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+  
+                <!-- Delete button added here -->
+                <button class="delete-button" onclick="handleRemoveButtonClick('<%= order.iD_naročila %>')">Izbriši naročilo</button>
+            </li>
+        <% } %>
+    </ul>
+  </div>
+  
+  
+  
+  
+</body>
+</html>

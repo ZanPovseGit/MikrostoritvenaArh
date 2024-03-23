@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Shop</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    function toggleMenu() {
+    var menuList = document.querySelector('.menu-list');
+    menuList.style.display = (menuList.style.display === 'block') ? 'none' : 'block';
+}
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var items = document.querySelectorAll('.item');
+  
+      items.forEach(function (item) {
+        item.addEventListener('click', function () {
+          // Pridobi ID izdelka iz podatkovnega atributa data-id
+          var itemId = item.dataset.id;
+        
+          // Odpre novo okno ali preusmeri na novo stran z ID izdelka
+          window.location.href = '/podrobnosti_izdelka/' + itemId;
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  
+</div>
+
+<div class="header">
+  <div class="menu-icon" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+</div>
+<ul class="menu-list">
+          <li><a href="/mojaKosarica">Košarica</a></li>
+          <li><a href="/pridobiNarocila">Naročila</a></li>
+          <li><a href="/statistika">Statistika</a></li>
+          <li><a href="/messages">Sporocila</a></li>
+          <li><a href="/">Glavni meni</a></li>
+  
+</ul>
+  
+    <div class="user-info">
+      <% if (userId) { %>
+        
+        <div>
+          <a href="/login" class="logout-button">Logout</a>
+        </div>
+      <% } else { %>
+        <div>
+          <a href="/login">Login</a>
+        </div>
+      <% } %>
+    </div>
+    
+  </div>
+  
+  <div class="container">
+    <h1>Simple Shop</h1>
+    <div class="item-list">
+      <% items.forEach(item => { %>
+        <div class="item" data-id="<%= item.id %>">
+          <img src="<%= item.url || 'https://via.placeholder.com/150' %>" alt="<%= item.name %>" width="150" height="150">
+          <div class="item-details">
+            <h3><%= item.name %></h3>
+            <p class="price">$<%= parseFloat(item.price).toFixed(2) %></p>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+  
+  
+</body>
+</html>

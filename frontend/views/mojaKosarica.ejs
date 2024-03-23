@@ -1,0 +1,130 @@
+<!-- mojaKosarica.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Shop</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Moja Košarica</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        img {
+            max-width: 100px;
+            height: auto;
+            margin-right: 10px;
+        }
+
+        .details {
+            flex: 1;
+        }
+
+        .remove-button {
+            margin-left: auto;  /* Postavi gumb na desno stran celice */
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #ff6347;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <div class="menu-icon" onclick="toggleMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+        <ul class="menu-list">
+          <li><a href="/mojaKosarica">Košarica</a></li>
+          <li><a href="/pridobiNarocila">Naročila</a></li>
+          <li><a href="/statistika">Statistika</a></li>
+          <li><a href="/messages">Sporocila</a></li>
+          <li><a href="/">Glavni meni</a></li>
+        </ul>
+      </div>
+    
+      <div class="kosarica">
+    
+    <h1>Moja Košarica za uporabnika <%= kosaricaData.uporabniskoIme %></h1>
+
+    <ul>
+        <% for (let izdelek of kosaricaData.izdelki) { %>
+            <li>
+                <img src="<%= izdelek.slikaUrl %>" alt="<%= izdelek.naslov %>">
+                <div class="details">
+                    <h2><%= izdelek.naslov %></h2>
+                    <p><%= izdelek._id %></p>
+                    <p><%= izdelek.opis %></p>
+                    <p>Proizvajalec: <%= izdelek.proizvajalec %></p>
+                    <p>Teža: <%= izdelek.teza %> g</p>
+                    <p>Barva: <%= izdelek.barva %></p>
+                </div>
+                <!-- Uporaba preusmeritve z metodo GET -->
+                <button class="remove-button" onclick="handleRemoveButtonClick('<%= izdelek._id %>')">Odstrani izdelek</button>
+            </li>
+        <% } %>
+    </ul>
+     </div>
+    <script>
+        function toggleMenu() {
+    var menuList = document.querySelector('.menu-list');
+    menuList.style.display = (menuList.style.display === 'block') ? 'none' : 'block';
+}
+        // Uporaba preusmeritve z metodo GET
+        function handleRemoveButtonClick(izdelekId) {
+            const url = `/odstraniIzkrosarice?itemId=${izdelekId}`;
+            window.location.href = url;
+        }
+
+
+        // Dodajanje gumba "Kupi"
+        function handleBuyButtonClick() {
+            const url = '/kupiIzKosarice';
+            window.location.href = url;
+        }
+    </script>
+
+<button onclick="handleBuyButtonClick()" style="width: 150px; margin-left: 25px;">Kupi</button>
+
+
+    
+</body>
+
+
+</html>

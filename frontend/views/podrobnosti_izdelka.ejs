@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podrobnosti izdelka</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    div {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 10px 0;
+      color: #555;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+
+<body>
+  <h1>Podrobnosti izdelka</h1>
+  <div>
+    <img src="<%= podrobnostiIzdelka.slikaUrl || 'https://via.placeholder.com/150' %>" alt="<%= podrobnostiIzdelka.naslov %>" width="150" height="150">
+    <p><strong>Naslov:</strong> <%= podrobnostiIzdelka.naslov %></p>
+    <p><strong>Opis:</strong> <%= podrobnostiIzdelka.opis %></p>
+    <p><strong>Proizvajalec:</strong> <%= podrobnostiIzdelka.proizvajalec %></p>
+    <p><strong>Teža:</strong> <%= podrobnostiIzdelka.teza %> kg</p>
+    <p><strong>Barva:</strong> <%= podrobnostiIzdelka.barva %></p>
+    <button id="dodajvkosarico">Dodaj v košarico</button>
+  </div>
+ 
+  <script>
+    
+    document.getElementById('dodajvkosarico').addEventListener('click', function() {
+      const itemId = '<%= podrobnostiIzdelka.id %>';
+      const naslov = '<%= podrobnostiIzdelka.naslov %>';
+      const opis = '<%= podrobnostiIzdelka.opis %>';
+      const proizvajalec = '<%= podrobnostiIzdelka.proizvajalec %>';
+      const teza = '<%= podrobnostiIzdelka.teza %>';
+      const barva = '<%= podrobnostiIzdelka.barva %>';
+      const slikaUrl = '<%= podrobnostiIzdelka.slikaUrl %>';
+  
+      const url = `/dodajVkrosarico?itemId=${itemId}&naslov=${naslov}&opis=${opis}&proizvajalec=${proizvajalec}&teza=${teza}&barva=${barva}&slikaUrl=${slikaUrl}`;
+      window.location.href = url;
+    });
+  </script>
+</body>
+</html>

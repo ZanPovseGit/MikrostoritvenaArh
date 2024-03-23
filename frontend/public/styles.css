@@ -1,0 +1,304 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p, label, button {
+  margin: 0;
+  padding: 0;
+}
+
+.kosarica {
+  margin: 20px;
+}
+
+
+.menu-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.menu-list li {
+    padding: 10px;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu-list a:hover {
+    color: #ff4500;
+}
+
+/* Dodajte animacijo po želji */
+.menu-list.active {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+ .menu-icon {
+    margin-left: auto; /* Postavi ikono na desno stran */
+    margin-right: 10000px; /* Dodajte želen razmik po potrebi */
+    cursor: pointer;
+  }
+
+
+/* Basic styling for the body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Common styles for the header */
+.header {
+  background-color: #8b4513; /* Rjava barva */
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 20px; /* Prilagoditev višine spodnjega prostora v pikslih */
+}
+
+.logout-button {
+  background-color: #dc3545; /* Barva gumba za logout */
+  color: white;
+  padding: 0.5rem 1rem; /* Dodatni prostor okoli besedila */
+  text-decoration: none;
+  border-radius: 5px; /* Zaobljeni robovi */
+}
+
+.napis {
+  margin-bottom: 20px; /* Ali katerokoli drugo ustrezno vrednost */
+}
+
+.logout-button:hover {
+  background-color: #c82333; /* Barva gumba za logout na hover */
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.user-info {
+  float: right;
+}
+
+/* Styling for the login container */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the login form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Styling for the main container in index.ejs */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the item list in index.ejs */
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.item-details h3 {
+  margin-top: 10px;
+}
+
+.price {
+  color: #333;
+}
+
+/* Styling for the add item form in index.ejs */
+.add-item-form {
+  margin-top: 20px;
+}
+
+/* Styling for the shopping cart in index.ejs */
+.cart {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Reset some default browser styles */
+body, h1, h2, h3, p, label, button {
+  margin: 0;
+  padding: 0;
+}
+
+/* Basic styling for the body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Common styles for the header */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.user-info {
+  float: right;
+}
+
+/* Styling for the login container */
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the login form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Styling for the main container in index.ejs */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the item list in index.ejs */
+.item-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+.item-details h3 {
+  margin-top: 10px;
+}
+
+.price {
+  color: #333;
+}
+
+/* Styling for the add item form in index.ejs */
+.add-item-form {
+  margin-top: 20px;
+}
+
+/* Styling for the shopping cart in index.ejs */
+.cart {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

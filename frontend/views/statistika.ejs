@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Shop</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script>
+    function toggleMenu() {
+      var menuList = document.querySelector('.menu-list');
+      menuList.style.display = (menuList.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</head>
+<body>
+  <div class="header">
+    <div class="menu-icon" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <ul class="menu-list">
+      <li><a href="/mojaKosarica">Košarica</a></li>
+      <li><a href="/pridobiNarocila">Naročila</a></li>
+      <li><a href="/statistika">Statistika</a></li>
+      <li><a href="/messages">Sporocila</a></li>
+      <li><a href="/">Glavni meni</a></li>
+    </ul>
+  </div>
+    <div>
+      
+        <div>
+            
+            <h2 style="margin-left: 10px;">Statistika klicev za Frontend API</h2>
+            <ul>
+              <% for (const [route, count] of Object.entries(statistikaData.calls_count)) { %>
+                <li><strong><%= route %></strong>: <%= count %> klicev</li>
+              <% } %>
+            </ul>
+
+            <h2 style="margin-left: 10px;">Statistika klicev za Messages API</h2>
+            <ul>
+              <% for (const [route, count] of Object.entries(statistikaDataMess.calls_count)) { %>
+                <li><strong><%= route %></strong>: <%= count %> klicev</li>
+              <% } %>
+            </ul>
+
+          </div>
+       
+    </div>
+  </div>
+</body>
+</html>
